@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: 'ECHO',
-  fullName: 'Earnings Call Outlook System',
+  fullName: 'Earnings Call Harnessing for High-Alpha Outcomes',
   tagline: 'Transforming corporate conversations into market intelligence.',
   copyright: '© 2026 ECHO Intelligence Inc. All rights reserved.',
   version: 'v1.0.4 • STABLE',

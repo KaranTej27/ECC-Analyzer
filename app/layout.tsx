@@ -4,7 +4,7 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'ECHO — Earnings Call Outlook System | AI Financial Intelligence',
+  title: 'ECHO — Earnings Call Harnessing for High-Alpha Outcomes | AI Financial Intelligence',
   description:
     'ECHO transforms corporate earnings call conversations into actionable, real-time market intelligence using domain-adapted LLMs and acoustic voice analysis.',
   keywords: [
