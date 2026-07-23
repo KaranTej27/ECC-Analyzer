@@ -47,6 +47,11 @@ export function HowItWorksSection() {
           },
         },
       });
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 200);
+
+      return () => clearTimeout(timer);
     }, containerRef);
 
     return () => ctx.revert();

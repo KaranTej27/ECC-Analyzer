@@ -36,7 +36,7 @@ export function HeroSection() {
           filter: 'blur(0px)',
           duration: 1.2,
           stagger: 0.15,
-          delay: 0.2,
+          delay: 0.1,
         }
       );
 
@@ -112,7 +112,7 @@ export function HeroSection() {
           {echoChars.map((char, idx) => (
             <span
               key={idx}
-              className={`hero-char font-extrabold text-[22vw] md:text-[18vw] leading-none tracking-tighter text-transparent bg-clip-text transition-all duration-500 ${
+              className={`hero-char opacity-0 font-extrabold text-[22vw] md:text-[18vw] leading-none tracking-tighter text-transparent bg-clip-text transition-colors duration-500 ${
                 isDark
                   ? 'bg-gradient-to-b from-[#FFFFFF] via-[#F5F5F5] to-[#4B4B4B] drop-shadow-[0_20px_50px_rgba(255,255,255,0.1)]'
                   : 'bg-gradient-to-b from-[#000000] via-[#151515] to-[#999999] drop-shadow-[0_20px_50px_rgba(0,0,0,0.06)]'
@@ -125,7 +125,7 @@ export function HeroSection() {
 
         <p
           ref={subtitleRef}
-          className={`text-lg md:text-3xl font-mono tracking-[0.2em] uppercase font-light mb-6 transition-colors duration-500 ${
+          className={`opacity-0 text-lg md:text-3xl font-mono tracking-[0.2em] uppercase font-light mb-6 transition-colors duration-500 ${
             isDark ? 'text-[#D9D9D9]' : 'text-[#151515]'
           }`}
         >
@@ -134,7 +134,7 @@ export function HeroSection() {
 
         <p
           ref={taglineRef}
-          className={`text-sm md:text-lg font-light tracking-wide max-w-xl mx-auto italic font-serif transition-colors duration-500 ${
+          className={`opacity-0 text-sm md:text-lg font-light tracking-wide max-w-xl mx-auto italic font-serif transition-colors duration-500 ${
             isDark ? 'text-[#999999]' : 'text-[#4B4B4B]'
           }`}
         >
@@ -143,7 +143,7 @@ export function HeroSection() {
 
         <div
           ref={dividerLineRef}
-          className={`w-48 h-[1px] my-10 transform origin-center transition-all duration-500 ${
+          className={`opacity-0 w-48 h-[1px] my-10 transform origin-center transition-all duration-500 ${
             isDark
               ? 'bg-gradient-to-r from-transparent via-[#D9D9D9] to-transparent'
               : 'bg-gradient-to-r from-transparent via-[#4B4B4B] to-transparent'
@@ -153,7 +153,7 @@ export function HeroSection() {
 
       <div
         ref={scrollIndicatorRef}
-        className="flex flex-col items-center gap-3 cursor-pointer group pb-4"
+        className="opacity-0 flex flex-col items-center gap-3 cursor-pointer group pb-4"
         onClick={() => {
           document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
         }}
