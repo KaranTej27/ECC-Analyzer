@@ -83,7 +83,7 @@ export function HowItWorksSection() {
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-16 mb-12">
         <span
           className={`text-xs font-mono tracking-[0.3em] uppercase block mb-4 transition-colors ${
-            isDark ? 'text-[#999999]' : 'text-[#4B4B4B]'
+            isDark ? 'text-[#a1a1aa]' : 'text-[#52525b]'
           }`}
         >
           03 // SYSTEM ARCHITECTURE
@@ -100,7 +100,7 @@ export function HowItWorksSection() {
       </div>
 
       <div className="relative max-w-7xl mx-auto w-full px-6 lg:px-16 mb-8">
-        <div className={`w-full h-[1px] relative transition-colors ${isDark ? 'bg-[#151515]' : 'bg-[#E5E5E5]'}`}>
+        <div className={`w-full h-[1px] relative transition-colors ${isDark ? 'bg-[#27272a]' : 'bg-[#E5E5E5]'}`}>
           <div
             ref={progressLineRef}
             className={`h-full transition-all duration-150 ${
@@ -128,15 +128,15 @@ export function HowItWorksSection() {
                 className={`relative flex-shrink-0 w-[300px] sm:w-[360px] lg:w-[420px] p-8 rounded-2xl border transition-all duration-500 flex flex-col justify-between ${
                   isDark
                     ? isCurrent
-                      ? 'border-[#FFFFFF] shadow-[0_0_40px_rgba(255,255,255,0.15)] bg-[#151515]/90'
+                      ? 'border-[#FFFFFF] shadow-[0_0_40px_rgba(255,255,255,0.15)] bg-[#18181b]/95 opacity-100'
                       : isActive
-                      ? 'border-[#4B4B4B]/80 bg-[#090909]/95 opacity-90'
-                      : 'border-[#151515] bg-[#090909]/60 opacity-40'
+                      ? 'border-[#3f3f46] bg-[#090909]/95 opacity-90'
+                      : 'border-[#27272a] bg-[#090909]/80 opacity-85'
                     : isCurrent
-                    ? 'border-[#000000] shadow-[0_4px_30px_rgba(0,0,0,0.1)] bg-[#FFFFFF]'
+                    ? 'border-[#000000] shadow-[0_4px_30px_rgba(0,0,0,0.1)] bg-[#FFFFFF] opacity-100'
                     : isActive
                     ? 'border-[#999999] bg-[#F5F5F5]/90 opacity-90'
-                    : 'border-[#E5E5E5] bg-[#F5F5F5]/50 opacity-40'
+                    : 'border-[#E5E5E5] bg-[#F5F5F5]/70 opacity-85'
                 }`}
               >
                 <div>
@@ -148,7 +148,7 @@ export function HowItWorksSection() {
                             ? 'text-[#FFFFFF]'
                             : 'text-[#000000]'
                           : isDark
-                          ? 'text-[#4B4B4B]'
+                          ? 'text-[#a1a1aa]'
                           : 'text-[#999999]'
                       }`}
                     >
@@ -162,9 +162,9 @@ export function HowItWorksSection() {
                             : 'bg-[#000000] text-[#FFFFFF] border-[#000000]'
                           : isActive
                           ? isDark
-                            ? 'bg-[#151515] text-[#FFFFFF] border-[#4B4B4B]'
+                            ? 'bg-[#18181b] text-[#FFFFFF] border-[#3f3f46]'
                             : 'bg-[#FFFFFF] text-[#000000] border-[#D9D9D9]'
-                          : 'bg-transparent text-[#999999] border-[#E5E5E5]'
+                          : 'bg-transparent text-[#a1a1aa] border-[#3f3f46]'
                       }`}
                     >
                       {getStepIcon(idx)}
@@ -180,14 +180,14 @@ export function HowItWorksSection() {
                   </h3>
                   <p
                     className={`text-xs font-mono uppercase tracking-wider mb-4 transition-colors ${
-                      isDark ? 'text-[#999999]' : 'text-[#4B4B4B]'
+                      isDark ? 'text-[#a1a1aa]' : 'text-[#52525b]'
                     }`}
                   >
                     {step.subtitle}
                   </p>
                   <p
                     className={`text-sm font-light leading-relaxed mb-8 transition-colors ${
-                      isDark ? 'text-[#D9D9D9]' : 'text-[#151515]'
+                      isDark ? 'text-[#e4e4e7]' : 'text-[#151515]'
                     }`}
                   >
                     {step.description}
@@ -197,14 +197,14 @@ export function HowItWorksSection() {
                 {step.metrics && (
                   <div
                     className={`pt-6 border-t grid grid-cols-2 gap-4 font-mono text-xs transition-colors ${
-                      isDark ? 'border-[#151515]' : 'border-[#E5E5E5]'
+                      isDark ? 'border-[#27272a]' : 'border-[#E5E5E5]'
                     }`}
                   >
                     {step.metrics.map((m) => (
                       <div key={m.label}>
                         <span
                           className={`text-[10px] block uppercase tracking-wider ${
-                            isDark ? 'text-[#4B4B4B]' : 'text-[#999999]'
+                            isDark ? 'text-[#a1a1aa]' : 'text-[#52525b]'
                           }`}
                         >
                           {m.label}
@@ -223,7 +223,7 @@ export function HowItWorksSection() {
 
                 {idx < TIMELINE_STEPS.length - 1 && (
                   <div className={`absolute -right-6 top-1/2 -translate-y-1/2 z-20 ${
-                    isDark ? 'text-[#4B4B4B]' : 'text-[#999999]'
+                    isDark ? 'text-[#a1a1aa]' : 'text-[#999999]'
                   }`}>
                     <ChevronRight className="w-5 h-5" />
                   </div>

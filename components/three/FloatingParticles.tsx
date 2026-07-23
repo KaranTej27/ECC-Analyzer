@@ -7,11 +7,18 @@ import * as THREE from 'three';
 interface FloatingParticlesProps {
   count?: number;
   mouse: { x: number; y: number };
-  color?: string;
+  isDark?: boolean;
 }
 
-export function FloatingParticles({ count = 800, mouse, color = '#FFFFFF' }: FloatingParticlesProps) {
+export function FloatingParticles({
+  count = 700,
+  mouse,
+  isDark = true,
+}: FloatingParticlesProps) {
   const pointsRef = useRef<THREE.Points>(null);
+  const matRef = useRef<THREE.PointsMaterial>(null);
+
+  const targetColor = useMemo(() => new THREE.Color(isDark ? '#FFFFFF' : '#151515'), [isDark]);
 
   const [positions] = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -36,6 +43,13 @@ export function FloatingParticles({ count = 800, mouse, color = '#FFFFFF' }: Flo
     
     pointsRef.current.position.x += (targetX - pointsRef.current.position.x) * 0.05;
     pointsRef.current.position.y += (targetY - pointsRef.current.position.y) * 0.05;
+
+    if (matRef.current) {
+      const lerpSpeed = delta * 6;
+      matRef.current.color.lerp(targetColor, lerpSpeed);
+      const targetOpacity = isDark ? 0.35 : 0.5;
+      matRef.current.opacity += (targetOpacity - matRef.current.opacity) * lerpSpeed;
+    }
   });
 
   return (
@@ -47,11 +61,12 @@ export function FloatingParticles({ count = 800, mouse, color = '#FFFFFF' }: Flo
         />
       </bufferGeometry>
       <pointsMaterial
+        ref={matRef}
         size={0.06}
-        color={color}
+        color={isDark ? '#FFFFFF' : '#151515'}
         transparent
-        opacity={0.35}
-        blending={THREE.AdditiveBlending}
+        opacity={isDark ? 0.35 : 0.5}
+        blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
         sizeAttenuation
       />
     </points>

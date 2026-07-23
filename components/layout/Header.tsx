@@ -123,8 +123,8 @@ export function Header() {
             </button>
 
             {/* LOGIN Button */}
-            <button
-              onClick={() => openAuth('login')}
+            <Link
+              href="/dashboard"
               className={`px-3.5 py-2 text-xs font-mono tracking-wider transition-colors font-medium rounded-full ${
                 isDark
                   ? 'text-[#D9D9D9] hover:text-[#FFFFFF]'
@@ -132,7 +132,7 @@ export function Header() {
               }`}
             >
               LOGIN
-            </button>
+            </Link>
 
             {/* REGISTER Button */}
             <button

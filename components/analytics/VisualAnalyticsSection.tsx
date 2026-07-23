@@ -34,8 +34,8 @@ export function VisualAnalyticsSection() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: 'top 70%',
-            toggleActions: 'play none none reverse',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
           },
         }
       );
@@ -53,7 +53,7 @@ export function VisualAnalyticsSection() {
           scrollTrigger: {
             trigger: metricsRowRef.current,
             start: 'top 85%',
-            toggleActions: 'play none none reverse',
+            toggleActions: 'play none none none',
           },
         }
       );
@@ -80,7 +80,7 @@ export function VisualAnalyticsSection() {
           <div>
             <span
               className={`text-xs font-mono tracking-[0.3em] uppercase block mb-4 transition-colors ${
-                isDark ? 'text-[#999999]' : 'text-[#4B4B4B]'
+                isDark ? 'text-[#a1a1aa]' : 'text-[#52525b]'
               }`}
             >
               02 // PREDICTIVE FORECASTING
@@ -98,7 +98,7 @@ export function VisualAnalyticsSection() {
 
           <p
             className={`text-sm font-mono max-w-sm transition-colors ${
-              isDark ? 'text-[#999999]' : 'text-[#4B4B4B]'
+              isDark ? 'text-[#a1a1aa]' : 'text-[#52525b]'
             }`}
           >
             Continuous real-time signal stream evaluating earnings calls against historical alpha models.
@@ -115,21 +115,21 @@ export function VisualAnalyticsSection() {
               key={metric.label}
               className={`metric-card p-6 rounded-2xl border backdrop-blur-md transition-all duration-300 flex flex-col justify-between ${
                 isDark
-                  ? 'bg-[#090909]/90 border-[#151515] hover:border-[#4B4B4B]/60'
+                  ? 'bg-[#090909]/95 border-[#27272a] hover:border-[#52525b]'
                   : 'bg-[#F5F5F5]/90 border-[#E5E5E5] hover:border-[#999999]/60 shadow-[0_4px_20px_rgba(0,0,0,0.02)]'
               }`}
             >
               <div className="flex items-center justify-between mb-4">
                 <span
                   className={`text-[11px] font-mono tracking-widest uppercase transition-colors ${
-                    isDark ? 'text-[#999999]' : 'text-[#4B4B4B]'
+                    isDark ? 'text-[#a1a1aa]' : 'text-[#52525b]'
                   }`}
                 >
                   {metric.label}
                 </span>
                 <div
                   className={`w-7 h-7 rounded-lg flex items-center justify-center border transition-colors ${
-                    isDark ? 'bg-[#151515] border-[#4B4B4B]/20' : 'bg-[#FFFFFF] border-[#D9D9D9]'
+                    isDark ? 'bg-[#18181b] border-[#3f3f46]' : 'bg-[#FFFFFF] border-[#D9D9D9]'
                   }`}
                 >
                   {getMetricIcon(idx)}
@@ -147,7 +147,7 @@ export function VisualAnalyticsSection() {
                 <span
                   className={`text-xs font-mono px-2 py-0.5 rounded border transition-colors ${
                     isDark
-                      ? 'text-[#D9D9D9] bg-[#151515] border-[#4B4B4B]/30'
+                      ? 'text-[#FFFFFF] bg-[#18181b] border-[#3f3f46]'
                       : 'text-[#151515] bg-[#FFFFFF] border-[#D9D9D9]'
                   }`}
                 >
@@ -157,7 +157,7 @@ export function VisualAnalyticsSection() {
 
               <p
                 className={`text-xs font-mono leading-relaxed transition-colors ${
-                  isDark ? 'text-[#4B4B4B]' : 'text-[#999999]'
+                  isDark ? 'text-[#a1a1aa]' : 'text-[#52525b]'
                 }`}
               >
                 {metric.detail}

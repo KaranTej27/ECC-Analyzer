@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { X, Lock, Mail, User, ShieldCheck, ArrowRight, Command, KeyRound } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
 
@@ -11,6 +12,7 @@ interface AuthModalProps {
 }
 
 export function AuthModal({ isOpen, onClose, initialTab = 'login' }: AuthModalProps) {
+  const router = useRouter();
   const [tab, setTab] = useState<'login' | 'register'>(initialTab);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,13 +34,14 @@ export function AuthModal({ isOpen, onClose, initialTab = 'login' }: AuthModalPr
       setSuccessMsg(
         tab === 'login'
           ? 'AUTHENTICATION SUCCESSFUL • REDIRECTING TO TERMINAL...'
-          : 'REGISTRATION REQUEST SUBMITTED • VERIFICATION PENDING'
+          : 'REGISTRATION SUCCESSFUL • REDIRECTING TO TERMINAL...'
       );
       setTimeout(() => {
         setSuccessMsg('');
         onClose();
-      }, 2000);
-    }, 1000);
+        router.push('/dashboard');
+      }, 1000);
+    }, 600);
   };
 
   return (

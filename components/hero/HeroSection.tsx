@@ -29,35 +29,36 @@ export function HeroSection() {
 
       introTl.fromTo(
         '.hero-char',
-        { opacity: 0, y: 80, filter: 'blur(12px)' },
+        { opacity: 0, y: 60, filter: 'blur(10px)' },
         {
           opacity: 1,
           y: 0,
           filter: 'blur(0px)',
-          duration: 1.2,
-          stagger: 0.15,
+          duration: 1.1,
+          stagger: 0.12,
           delay: 0.1,
+          clearProps: 'filter',
         }
       );
 
       introTl.fromTo(
         subtitleRef.current,
-        { opacity: 0, y: 30, filter: 'blur(8px)' },
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1 },
+        { opacity: 0, y: 30, filter: 'blur(6px)' },
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9, clearProps: 'filter' },
         '-=0.6'
       );
 
       introTl.fromTo(
         taglineRef.current,
         { opacity: 0, y: 20 },
-        { opacity: 0.8, y: 0, duration: 0.9 },
+        { opacity: 0.85, y: 0, duration: 0.8 },
         '-=0.5'
       );
 
       introTl.fromTo(
         dividerLineRef.current,
         { scaleX: 0, opacity: 0 },
-        { scaleX: 1, opacity: 0.4, duration: 1, ease: 'power2.inOut' },
+        { scaleX: 1, opacity: 0.4, duration: 0.9, ease: 'power2.inOut' },
         '-=0.4'
       );
 
@@ -79,9 +80,9 @@ export function HeroSection() {
           },
         })
           .to(titleWrapperRef.current, {
-            scale: 0.65,
-            y: -120,
-            opacity: 0.1,
+            scale: 0.7,
+            y: -100,
+            opacity: 0.2,
             ease: 'none',
           })
           .to(
@@ -107,12 +108,15 @@ export function HeroSection() {
     >
       <div className="h-16" />
 
-      <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto my-auto">
-        <div ref={titleWrapperRef} className="flex items-center justify-center gap-2 md:gap-6 mb-4 select-none">
+      <div className="flex flex-col items-center justify-center text-center w-full max-w-7xl mx-auto my-auto px-4 overflow-visible">
+        <div
+          ref={titleWrapperRef}
+          className="w-full flex items-center justify-center gap-1 sm:gap-3 md:gap-4 mb-4 select-none overflow-visible"
+        >
           {echoChars.map((char, idx) => (
             <span
               key={idx}
-              className={`hero-char opacity-0 font-extrabold text-[22vw] md:text-[18vw] leading-none tracking-tighter text-transparent bg-clip-text transition-colors duration-500 ${
+              className={`hero-char inline-block font-extrabold text-[18vw] sm:text-[14vw] lg:text-[11rem] leading-none tracking-normal text-transparent bg-clip-text transition-colors duration-500 py-2 px-1.5 sm:px-3 overflow-visible ${
                 isDark
                   ? 'bg-gradient-to-b from-[#FFFFFF] via-[#F5F5F5] to-[#4B4B4B] drop-shadow-[0_20px_50px_rgba(255,255,255,0.1)]'
                   : 'bg-gradient-to-b from-[#000000] via-[#151515] to-[#999999] drop-shadow-[0_20px_50px_rgba(0,0,0,0.06)]'
@@ -125,7 +129,7 @@ export function HeroSection() {
 
         <p
           ref={subtitleRef}
-          className={`opacity-0 text-lg md:text-3xl font-mono tracking-[0.2em] uppercase font-light mb-6 transition-colors duration-500 ${
+          className={`text-lg md:text-3xl font-mono tracking-[0.2em] uppercase font-light mb-6 transition-colors duration-500 ${
             isDark ? 'text-[#D9D9D9]' : 'text-[#151515]'
           }`}
         >
@@ -134,8 +138,8 @@ export function HeroSection() {
 
         <p
           ref={taglineRef}
-          className={`opacity-0 text-sm md:text-lg font-light tracking-wide max-w-xl mx-auto italic font-serif transition-colors duration-500 ${
-            isDark ? 'text-[#999999]' : 'text-[#4B4B4B]'
+          className={`text-sm md:text-lg font-light tracking-wide max-w-xl mx-auto italic font-serif transition-colors duration-500 ${
+            isDark ? 'text-[#a1a1aa]' : 'text-[#52525b]'
           }`}
         >
           &ldquo;{SITE_CONFIG.tagline}&rdquo;
@@ -143,7 +147,7 @@ export function HeroSection() {
 
         <div
           ref={dividerLineRef}
-          className={`opacity-0 w-48 h-[1px] my-10 transform origin-center transition-all duration-500 ${
+          className={`w-48 h-[1px] my-10 transform origin-center transition-all duration-500 ${
             isDark
               ? 'bg-gradient-to-r from-transparent via-[#D9D9D9] to-transparent'
               : 'bg-gradient-to-r from-transparent via-[#4B4B4B] to-transparent'
@@ -153,14 +157,14 @@ export function HeroSection() {
 
       <div
         ref={scrollIndicatorRef}
-        className="opacity-0 flex flex-col items-center gap-3 cursor-pointer group pb-4"
+        className="flex flex-col items-center gap-3 cursor-pointer group pb-4"
         onClick={() => {
           document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
         }}
       >
         <span
           className={`text-[11px] font-mono tracking-[0.3em] uppercase transition-colors ${
-            isDark ? 'text-[#999999] group-hover:text-[#FFFFFF]' : 'text-[#4B4B4B] group-hover:text-[#000000]'
+            isDark ? 'text-[#a1a1aa] group-hover:text-[#FFFFFF]' : 'text-[#52525b] group-hover:text-[#000000]'
           }`}
         >
           SCROLL TO EXPLORE
@@ -168,7 +172,7 @@ export function HeroSection() {
         <div
           className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 animate-bounce ${
             isDark
-              ? 'border-[#4B4B4B]/50 bg-[#151515]/60 text-[#D9D9D9] group-hover:border-[#FFFFFF] group-hover:text-[#FFFFFF]'
+              ? 'border-[#3f3f46] bg-[#18181b]/80 text-[#D9D9D9] group-hover:border-[#FFFFFF] group-hover:text-[#FFFFFF]'
               : 'border-[#D9D9D9] bg-[#F5F5F5]/80 text-[#151515] group-hover:border-[#000000] group-hover:text-[#000000]'
           }`}
         >
